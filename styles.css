@@ -12,3 +12,7 @@
 .square{
     margin: 0;
 }
+
+.hovered{
+    background-color: red;
+}

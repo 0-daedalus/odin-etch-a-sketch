@@ -18,23 +18,25 @@ function makeGrid(x){
     }
 }
 
-let grid = document.querySelectorAll('.square');
+function addPen(){
+    let grid = document.querySelectorAll('.square');
 
-grid.forEach((sqr) => {
-    sqr.addEventListener('mouseenter', () => {
-        sqr.style.backgroundColor = 'red';
+    grid.forEach((sqr) => {
+        sqr.addEventListener('mouseenter', () => {
+            sqr.classList.add('hovered');
+        })
+        // sqr.addEventListener('mouseleave', () => {
+        //     sqr.classList.toggle('hovered');
+        // })
     })
-    sqr.addEventListener('mouseleave', () => {
-        sqr.style.backgroundColor = 'white';
-    })
-})
-
+}
 ///////////////////////////////////////////////////////////////////
 
 let btn = document.querySelector('#gridmaker');
 
 btn.addEventListener('click', () => {
     let x = prompt("Number of squares per side:");
-    if(x > 100 || x < 0) x = prompt("Enter a number less than 100:");
+    while(x > 100 || x < 0) x = prompt("Enter a number less than 100:");
     makeGrid(x);
+    addPen();
 })
