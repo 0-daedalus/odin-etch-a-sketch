@@ -1,15 +1,22 @@
 let container = document.querySelector('.container');
 
-function erase(){
+function eraseGrid(){
     let grid = document.querySelectorAll('.square');
     grid.forEach((sqr) => {
         container.removeChild(sqr);
     });
 }
 
+function eraseColors(){
+    let grid = document.querySelectorAll('.square');
+    grid.forEach((sqr) => {
+        sqr.style.backgroundColor = 'white';
+    });
+}
+
 function makeGrid(x){
 
-    erase();
+    eraseGrid();
 
     for(let i = 0; i < x; i++){
         for(let j = 0; j < x; j++){
@@ -63,3 +70,9 @@ randBtn.addEventListener('click', () => {
     makeGrid(x);
     addRandomPen();
 });
+
+let clrBtn = document.querySelector('#clearbutton');
+
+clrBtn.addEventListener('click', () => {
+    eraseColors();
+})
